@@ -2,14 +2,16 @@ import React from 'react'
 import Card from './components/Card'
 import RecentTransactions from './components/RecentTransactions'
 import RecentActivities from './components/RecentActivities'
-import OrdersTable from './components/OrdersTable'
 import Chart from 'react-apexcharts'
 import { COLOR_1 } from '@/constants/chart.constant'
+import Table from '@/components/ui/Table'
+
+const { Tr, Th, Td, THead, TBody } = Table
 
 const BasicArea = () => {
     const data = [
         {
-            name: 'STOCK ABC',
+            name: 'Revenue',
             data: [
                 8107.85, 8128.0, 8122.9, 8165.5, 8340.7, 8423.7, 8423.5, 8514.3,
                 8481.85, 8487.7, 8506.9, 8626.2, 8668.95, 8602.3, 8607.55,
@@ -66,24 +68,59 @@ const BasicArea = () => {
     )
 }
 
+const CompactOrdersTable = () => {
+    return (
+        <Table compact>
+            <THead>
+                <Tr>
+                    <Th>Order ID</Th>
+                    <Th>Customer</Th>
+                    <Th>Status</Th>
+                    <Th>Total</Th>
+                </Tr>
+            </THead>
+            <TBody>
+                <Tr>
+                    <Td>#12345</Td>
+                    <Td>John Doe</Td>
+                    <Td>Completed</Td>
+                    <Td>$120.00</Td>
+                </Tr>
+                <Tr>
+                    <Td>#12346</Td>
+                    <Td>Jane Smith</Td>
+                    <Td>Pending</Td>
+                    <Td>$75.00</Td>
+                </Tr>
+                <Tr>
+                    <Td>#12347</Td>
+                    <Td>Michael Brown</Td>
+                    <Td>Cancelled</Td>
+                    <Td>$0.00</Td>
+                </Tr>
+            </TBody>
+        </Table>
+    )
+}
+
 const Home = () => {
     return (
-        <div className="min-h-screen bg-white p-2">
-
+        <div className="min-h-screen bg-white p-4">
             {/* Dashboard Overview (Grid Layout) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-                <Card title="Total Sales">
-                    <div className="text-3xl font-bold">$12,340</div>
-                    <p className="text-gray-600">This Month</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
+                {/* Updated Card 1 */}
+                <Card title="Monthly Revenue">
+                    <div className="text-3xl text-primary font-bold">$50,240</div>
+                    <p className="text-gray-600">October 2024</p>
                 </Card>
-                <Card title="Active Orders">
+
+                {/* Updated Card 2 */}
+                <Card title="Pending Orders">
                     <div className="text-3xl font-bold">32</div>
-                    <p className="text-gray-600">Orders Pending</p>
+                    <p className="text-gray-600">As of Today</p>
                 </Card>
-                <Card title="Completed Orders">
-                    <div className="text-3xl font-bold">128</div>
-                    <p className="text-gray-600">This Month</p>
-                </Card>
+
+                {/* Existing Card */}
                 <Card title="Total Customers">
                     <div className="text-3xl font-bold">2,340</div>
                     <p className="text-gray-600">Registered</p>
@@ -91,32 +128,31 @@ const Home = () => {
             </div>
 
             {/* Row for Sales Overview Chart and Recent Transactions */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
                 {/* Sales Overview Chart */}
-                <Card title="Sales Overview">
+                <Card title="Sales Overview" className="sm:col-span-2">
                     <BasicArea />
                 </Card>
 
                 {/* Recent Transactions Card */}
-                <Card title="Recent Transactions">
+                <Card title="Recent Transactions" className="sm:col-span-1">
                     <RecentTransactions />
                 </Card>
             </div>
 
-            {/* Recent Activities */}
-            <div className="mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+
+            <div className="mb-6 sm:col-span-1">
                 <Card title="Recent Activities">
                     <RecentActivities />
                 </Card>
             </div>
-
-            {/* Orders Table (Active and Completed Orders) */}
-            <div className="mb-6">
+            <div className="mb-6 sm:col-span-2">
                 <Card title="Orders">
-                    <OrdersTable />
+                    <CompactOrdersTable />
                 </Card>
             </div>
-
+            </div>
         </div>
     )
 }

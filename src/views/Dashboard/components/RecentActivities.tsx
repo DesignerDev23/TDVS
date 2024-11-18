@@ -4,6 +4,7 @@ const RecentActivities = () => {
         'Order #1234 was shipped.',
         'New customer registered: John Doe.',
         'Order #1235 completed.',
+        'Order #1235 completed.',
     ];
 
     return (

@@ -13,6 +13,12 @@ export const protectedRoutes = [
     },
     /** Example purpose only, please remove */
     {
+        key: 'business',
+        path: '/business',
+        component: lazy(() => import('@/views/Business/Business')),
+        authority: [],
+    },
+    {
         key: 'singleMenuItem',
         path: '/single-menu-view',
         component: lazy(() => import('@/views/demo/SingleMenuView')),
