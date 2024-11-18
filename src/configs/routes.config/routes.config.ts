@@ -25,6 +25,18 @@ export const protectedRoutes = [
         authority: [],
     },
     {
+        key: 'superAdmin.driverManagement',
+        path: '/driver',
+        component: lazy(() => import('@/views/SuperAdmin/Driver/Driver')),
+        authority: [],
+    },
+    {
+        key: 'superAdmin.addDriver',
+        path: '/add-driver',
+        component: lazy(() => import('@/views/SuperAdmin/Driver/AddDriver')),
+        authority: [],
+    },
+    {
         key: 'collapseMenu.item1',
         path: '/collapse-menu-item-view-1',
         component: lazy(() => import('@/views/demo/CollapseMenuItemView1')),
