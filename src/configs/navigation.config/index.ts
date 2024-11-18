@@ -9,13 +9,24 @@ const navigationConfig: NavigationTree[] = [
     // Super Admin Menu
     {
         key: 'superAdmin',
-        path: '',
+        path: '/home',
         title: 'Super Admin',
         translateKey: '',
         icon: 'singleMenu',
         type: NAV_ITEM_TYPE_TITLE,
         authority: [], // Define authority roles here
         subMenu: [
+
+            {
+                key: 'superAdmin.dashboard',
+                path: '/business-owner/dashboard',
+                title: 'Dashboard',
+                translateKey: 'nav.superAdmin.dashboard',
+                icon: 'singleMenu',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: [],
+            },
 
             {
                 key: 'superAdmin.businessManagement',
@@ -72,6 +83,37 @@ const navigationConfig: NavigationTree[] = [
                         path: '/add-driver',
                         title: 'Add Driver',
                         translateKey: 'nav.superAdmin.addDriver',
+                        icon: '',
+                        type: NAV_ITEM_TYPE_ITEM,
+                        authority: [],
+                        subMenu: [],
+                    },
+                ],
+            },
+                        {
+                key: 'superAdmin.payments',
+                path: '/payment-histpry',
+                title: 'Payments',
+                translateKey: 'nav.superAdmin.payments',
+                icon: 'payments',
+                type: NAV_ITEM_TYPE_COLLAPSE,
+                authority: [],
+                subMenu: [
+                    {
+                        key: 'superAdmin.payments',
+                        path: '/income-payments',
+                        title: 'Incoming Payments',
+                        translateKey: 'nav.superAdmin.payments',
+                        icon: '',
+                        type: NAV_ITEM_TYPE_ITEM,
+                        authority: [],
+                        subMenu: [],
+                    },
+                    {
+                        key: 'superAdmin.payments1',
+                        path: '/payment-history',
+                        title: 'Payment History',
+                        translateKey: 'nav.superAdmin.payments1',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,
                         authority: [],

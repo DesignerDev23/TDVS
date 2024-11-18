@@ -1,65 +1,63 @@
-import React, { useState, useMemo } from 'react'
-import Table from '@/components/ui/Table'
-import Pagination from '@/components/ui/Pagination'
-import Select from '@/components/ui/Select'
+import React, { useState, useMemo } from 'react';
+import Table from '@/components/ui/Table';
+import Pagination from '@/components/ui/Pagination';
+import Select from '@/components/ui/Select';
 import {
     useReactTable,
     getCoreRowModel,
     getFilteredRowModel,
     getPaginationRowModel,
     flexRender,
-} from '@tanstack/react-table'
-import type { ColumnDef } from '@tanstack/react-table'
+} from '@tanstack/react-table';
+import type { ColumnDef } from '@tanstack/react-table';
 
-type Business = {
-    name: string
-    address: string
-    contact: string
-    email: string
-    owner: string
-}
+type IncomingPayment = {
+    payerName: string;
+    amount: number;
+    dueDate: string;
+    paymentMethod: string;
+    reference: string;
+};
 
 type Option = {
-    value: number
-    label: string
-}
+    value: number;
+    label: string;
+};
 
-const { Tr, Th, Td, THead, TBody } = Table
+const { Tr, Th, Td, THead, TBody } = Table;
 
-const businessData = (): Business[] => {
-    const data = []
-    for (let i = 1; i <= 100; i++) {
+const incomingPaymentsData = (): IncomingPayment[] => {
+    const data = [];
+    for (let i = 1; i <= 50; i++) {
         data.push({
-            name: `Business ${i}`,
-            address: `Address ${i}`,
-            contact: `123-456-78${i}`,
-            email: `business${i}@example.com`,
-            owner: `Owner ${i}`,
-        })
+            payerName: `Payer ${i}`,
+            amount: Math.floor(Math.random() * 1000) + 50,
+            dueDate: `2024-11-${i % 30 + 1}`,
+            paymentMethod: i % 2 === 0 ? 'Bank Transfer' : 'Credit Card',
+            reference: `REF${1000 + i}`,
+        });
     }
-    return data
-}
+    return data;
+};
 
-const totalData = businessData().length
+const totalData = incomingPaymentsData().length;
 
 const pageSizeOptions: Option[] = [
     { value: 10, label: '10 / page' },
     { value: 20, label: '20 / page' },
     { value: 30, label: '30 / page' },
-    { value: 40, label: '40 / page' },
-    { value: 50, label: '50 / page' },
-]
+];
 
-const BusinessTable = () => {
-    const columns = useMemo<ColumnDef<Business>[]>(() => [
-        { header: 'Business Name', accessorKey: 'name' },
-        { header: 'Registered Address', accessorKey: 'address' },
-        { header: 'Contact Number', accessorKey: 'contact' },
-        { header: 'Email', accessorKey: 'email' },
-        { header: 'Owner\'s Full Name', accessorKey: 'owner' },
-    ], [])
+const IncomingPaymentsTable = () => {
+    const columns = useMemo<ColumnDef<IncomingPayment>[]>(() => [
+        { header: 'Payer Name', accessorKey: 'payerName' },
+        { header: 'Amount ($)', accessorKey: 'amount' },
+        { header: 'Due Date', accessorKey: 'dueDate' },
+        { header: 'Payment Method', accessorKey: 'paymentMethod' },
+        { header: 'Reference', accessorKey: 'reference' },
+    ], []);
 
-    const [data] = useState(() => businessData())
+    const [data] = useState(() => incomingPaymentsData());
 
     const table = useReactTable({
         data,
@@ -67,18 +65,24 @@ const BusinessTable = () => {
         getCoreRowModel: getCoreRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
-    })
+    });
 
     const handlePageChange = (page: number) => {
-        table.setPageIndex(page - 1)
-    }
+        table.setPageIndex(page - 1);
+    };
 
     const handlePageSizeChange = (value?: number) => {
-        table.setPageSize(value || 10)
-    }
+        table.setPageSize(value || 10);
+    };
 
     return (
         <div>
+             <header className="mb-6">
+                <h1 className="text-2xl font-semibold">Incoming Payments</h1>
+                <p className="text-gray-600">
+                    View and manage all pending payments that are due.
+                </p>
+            </header>
             <Table>
                 <THead>
                     {table.getHeaderGroups().map((headerGroup) => (
@@ -133,7 +137,7 @@ const BusinessTable = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default BusinessTable
+export default IncomingPaymentsTable;

@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import BusinessTable from './components/BusinessTable'
+import BusinessTable from './components/DriverTable'
 import Button from '@/components/ui/Button'
 import { HiPlus } from 'react-icons/hi'
 import Dialog from '@/components/ui/Dialog'
 import type { MouseEvent } from 'react'
-import BusinessRegistrationForm from './components/BusinessRegistrationForm'
+import BusinessRegistrationForm from './components/AddDriverForm'
 
 const Business = () => {
     const [dialogIsOpen, setIsOpen] = useState(false)

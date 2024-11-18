@@ -9,6 +9,7 @@ import {
     HiOutlineShoppingCart,
     HiDocumentReport,
     HiOutlineTruck,
+    HiCreditCard,
 } from 'react-icons/hi'
 
 export type NavigationIcons = Record<string, JSX.Element>
@@ -23,7 +24,8 @@ const navigationIcon: NavigationIcons = {
     register: <HiUserAdd />,
     order: <HiOutlineShoppingCart />,
     report: <HiDocumentReport />,
-    driver: <HiOutlineTruck />
+    driver: <HiOutlineTruck />,
+    payments: <HiCreditCard />,
 }
 
 export default navigationIcon

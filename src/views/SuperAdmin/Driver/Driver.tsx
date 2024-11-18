@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import BusinessTable from './components/BusinessTable'
+import BusinessTable from './components/DriverTable'
 import Button from '@/components/ui/Button'
 import { HiPlus } from 'react-icons/hi'
 import Dialog from '@/components/ui/Dialog'
 import type { MouseEvent } from 'react'
-import BusinessRegistrationForm from './components/BusinessRegistrationForm'
+import BusinessRegistrationForm from './components/AddDriverForm'
 
 const Driver = () => {
     const [dialogIsOpen, setIsOpen] = useState(false)
@@ -36,9 +36,9 @@ const Driver = () => {
             {/* Business Table Section */}
             <div className="mb-6">
                 <div className="flex justify-between items-center mb-8">
-                    <h2 className="text-xl font-semibold">Registered Businesses</h2>
+                    <h2 className="text-xl font-semibold">Registered Drivers</h2>
                     <Button variant="solid" icon={<HiPlus className="mr-2" />} onClick={openDialog}>
-                        Register New Business
+                        Register New Drivers
                     </Button>
                 </div>
                 <BusinessTable />

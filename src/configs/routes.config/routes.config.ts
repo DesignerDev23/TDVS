@@ -37,6 +37,18 @@ export const protectedRoutes = [
         authority: [],
     },
     {
+        key: 'superAdmin.payments',
+        path: '/income-payments',
+        component: lazy(() => import('@/views/SuperAdmin/Payments/IncomingPaymentsTable')),
+        authority: [],
+    },
+    {
+        key: 'superAdmin.payments1',
+        path: '/payment-history',
+        component: lazy(() => import('@/views/SuperAdmin/Payments/PaymentsHistoryTable')),
+        authority: [],
+    },
+    {
         key: 'collapseMenu.item1',
         path: '/collapse-menu-item-view-1',
         component: lazy(() => import('@/views/demo/CollapseMenuItemView1')),
