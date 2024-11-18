@@ -146,7 +146,7 @@ const navigationConfig: NavigationTree[] = [
         subMenu: [
             {
                 key: 'businessOwner.dashboard',
-                path: '/business-owner/dashboard',
+                path: '/business-dashboard',
                 title: 'Dashboard',
                 translateKey: 'nav.businessOwner.dashboard',
                 icon: 'singleMenu',
@@ -231,10 +231,10 @@ const navigationConfig: NavigationTree[] = [
         subMenu: [
             {
                 key: 'driver.dashboard',
-                path: '/driver/dashboard',
+                path: '/driver-dashboard',
                 title: 'Dashboard',
                 translateKey: 'nav.driver.dashboard',
-                icon: 'dashboard',
+                icon: 'singleMenu',
                 type: NAV_ITEM_TYPE_ITEM,
                 authority: [],
                 subMenu: [],
@@ -244,7 +244,7 @@ const navigationConfig: NavigationTree[] = [
                 path: '',
                 title: 'Rides',
                 translateKey: 'nav.driver.rides',
-                icon: 'ride',
+                icon: 'rider',
                 type: NAV_ITEM_TYPE_COLLAPSE,
                 authority: [],
                 subMenu: [

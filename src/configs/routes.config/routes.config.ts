@@ -8,7 +8,19 @@ export const protectedRoutes = [
     {
         key: 'home',
         path: '/home',
-        component: lazy(() => import('@/views/Dashboard/Home')),
+        component: lazy(() => import('@/views/SuperAdmin/Dashboard/Home')),
+        authority: [],
+    },
+    {
+        key: 'businessOwner.dashboard',
+        path: '/business-dashboard',
+        component: lazy(() => import('@/views/BusinessOwners/Dashboard/Home')),
+        authority: [],
+    },
+    {
+        key: 'driver.dashboard',
+        path: '/driver-dashboard',
+        component: lazy(() => import('@/views/Driver/Dashboard/Home')),
         authority: [],
     },
     /** Example purpose only, please remove */
