@@ -1,21 +1,66 @@
 import {
     NAV_ITEM_TYPE_TITLE,
     NAV_ITEM_TYPE_ITEM,
-    NAV_ITEM_TYPE_COLLAPSE
-} from '@/constants/navigation.constant'
-import type { NavigationTree } from '@/@types/navigation'
+    NAV_ITEM_TYPE_COLLAPSE,
+} from '@/constants/navigation.constant';
+import type { NavigationTree } from '@/@types/navigation';
 
 const navigationConfig: NavigationTree[] = [
+    // Super Admin Menu
     {
-        key: 'home',
-        path: '/home',
-        title: 'Home',
-        translateKey: 'nav.home',
-        icon: 'home',
-        type: NAV_ITEM_TYPE_ITEM,
-        authority: [],
-        subMenu: [],
+        key: 'superAdmin',
+        path: '',
+        title: 'Super Admin',
+        translateKey: '',
+        icon: 'singleMenu',
+        type: NAV_ITEM_TYPE_TITLE,
+        authority: [], // Define authority roles here
+        subMenu: [
+
+            {
+                key: 'superAdmin.businessManagement',
+                path: '/business',
+                title: 'Business Management',
+                translateKey: 'nav.superAdmin.businessManagement',
+                icon: 'business',
+                type: NAV_ITEM_TYPE_COLLAPSE,
+                authority: [],
+                subMenu: [
+                    {
+                        key: 'superAdmin.businessManagement',
+                        path: '/business',
+                        title: 'Business List',
+                        translateKey: 'nav.superAdmin.businessManagement',
+                        icon: '',
+                        type: NAV_ITEM_TYPE_ITEM,
+                        authority: [],
+                        subMenu: [],
+                    },
+                    {
+                        key: 'superAdmin.addBusiness',
+                        path: '/add-business',
+                        title: 'Add Business',
+                        translateKey: 'nav.superAdmin.addBusiness',
+                        icon: '',
+                        type: NAV_ITEM_TYPE_ITEM,
+                        authority: [],
+                        subMenu: [],
+                    },
+                ],
+            },
+            {
+                key: 'superAdmin.reports',
+                path: '/super-admin/reports',
+                title: 'Reports',
+                translateKey: 'nav.superAdmin.reports',
+                icon: 'report',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [],
+                subMenu: [],
+            },
+        ],
     },
+
     // Business Owner Menu
     {
         key: 'businessOwner',
@@ -24,7 +69,7 @@ const navigationConfig: NavigationTree[] = [
         translateKey: '',
         icon: 'business',
         type: NAV_ITEM_TYPE_TITLE,
-        authority: [],
+        authority: [], // Define authority roles here
         subMenu: [
             {
                 key: 'businessOwner.dashboard',
@@ -37,29 +82,29 @@ const navigationConfig: NavigationTree[] = [
                 subMenu: [],
             },
             {
-                key: 'business',
-                path: '/business',
-                title: 'Business',
-                translateKey: 'nav.business',
+                key: 'businessOwner.business',
+                path: '',
+                title: 'Business Management',
+                translateKey: 'nav.businessOwner.business',
                 icon: 'business',
                 type: NAV_ITEM_TYPE_COLLAPSE,
                 authority: [],
                 subMenu: [
                     {
-                        key: 'business',
-                        path: '/business',
-                        title: 'Business Management',
-                        translateKey: 'nav.business',
-                        icon: 'business',
-                        type: NAV_ITEM_TYPE_ITEM, // Direct navigation item
-                        authority: [],
-                        subMenu: [],
-                    },                    
-                    {
-                        key: 'businessOwner.business.profile',
+                        key: 'businessOwner.businessProfile',
                         path: '/business-owner/business/profile',
                         title: 'Business Profile',
-                        translateKey: 'nav.businessOwner.business.profile',
+                        translateKey: 'nav.businessOwner.businessProfile',
+                        icon: '',
+                        type: NAV_ITEM_TYPE_ITEM,
+                        authority: [],
+                        subMenu: [],
+                    },
+                    {
+                        key: 'businessOwner.manageEmployees',
+                        path: '/business-owner/business/employees',
+                        title: 'Manage Employees',
+                        translateKey: 'nav.businessOwner.manageEmployees',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,
                         authority: [],
@@ -77,51 +122,20 @@ const navigationConfig: NavigationTree[] = [
                 authority: [],
                 subMenu: [
                     {
-                        key: 'businessOwner.orders.active',
+                        key: 'businessOwner.activeOrders',
                         path: '/business-owner/orders/active',
                         title: 'Active Orders',
-                        translateKey: 'nav.businessOwner.orders.active',
+                        translateKey: 'nav.businessOwner.activeOrders',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,
                         authority: [],
                         subMenu: [],
                     },
                     {
-                        key: 'businessOwner.orders.completed',
+                        key: 'businessOwner.completedOrders',
                         path: '/business-owner/orders/completed',
                         title: 'Completed Orders',
-                        translateKey: 'nav.businessOwner.orders.completed',
-                        icon: '',
-                        type: NAV_ITEM_TYPE_ITEM,
-                        authority: [],
-                        subMenu: [],
-                    },
-                ],
-            },
-            {
-                key: 'businessOwner.reports',
-                path: '',
-                title: 'Reports',
-                translateKey: 'nav.businessOwner.reports',
-                icon: 'report',
-                type: NAV_ITEM_TYPE_COLLAPSE,
-                authority: [],
-                subMenu: [
-                    {
-                        key: 'businessOwner.reports.sales',
-                        path: '/business-owner/reports/sales',
-                        title: 'Sales Report',
-                        translateKey: 'nav.businessOwner.reports.sales',
-                        icon: '',
-                        type: NAV_ITEM_TYPE_ITEM,
-                        authority: [],
-                        subMenu: [],
-                    },
-                    {
-                        key: 'businessOwner.reports.violation',
-                        path: '/business-owner/reports/violation',
-                        title: 'Violation Report',
-                        translateKey: 'nav.businessOwner.reports.violation',
+                        translateKey: 'nav.businessOwner.completedOrders',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,
                         authority: [],
@@ -131,6 +145,7 @@ const navigationConfig: NavigationTree[] = [
             },
         ],
     },
+
     // Driver Menu
     {
         key: 'driver',
@@ -139,7 +154,7 @@ const navigationConfig: NavigationTree[] = [
         translateKey: '',
         icon: 'driver',
         type: NAV_ITEM_TYPE_TITLE,
-        authority: [],
+        authority: [], // Define authority roles here
         subMenu: [
             {
                 key: 'driver.dashboard',
@@ -161,20 +176,20 @@ const navigationConfig: NavigationTree[] = [
                 authority: [],
                 subMenu: [
                     {
-                        key: 'driver.rides.active',
+                        key: 'driver.activeRides',
                         path: '/driver/rides/active',
                         title: 'Active Rides',
-                        translateKey: 'nav.driver.rides.active',
+                        translateKey: 'nav.driver.activeRides',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,
                         authority: [],
                         subMenu: [],
                     },
                     {
-                        key: 'driver.rides.completed',
+                        key: 'driver.completedRides',
                         path: '/driver/rides/completed',
                         title: 'Completed Rides',
-                        translateKey: 'nav.driver.rides.completed',
+                        translateKey: 'nav.driver.completedRides',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,
                         authority: [],
@@ -192,20 +207,20 @@ const navigationConfig: NavigationTree[] = [
                 authority: [],
                 subMenu: [
                     {
-                        key: 'driver.payments.incoming',
+                        key: 'driver.incomingPayments',
                         path: '/driver/payments/incoming',
                         title: 'Incoming Payments',
-                        translateKey: 'nav.driver.payments.incoming',
+                        translateKey: 'nav.driver.incomingPayments',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,
                         authority: [],
                         subMenu: [],
                     },
                     {
-                        key: 'driver.payments.history',
+                        key: 'driver.paymentHistory',
                         path: '/driver/payments/history',
                         title: 'Payment History',
-                        translateKey: 'nav.driver.payments.history',
+                        translateKey: 'nav.driver.paymentHistory',
                         icon: '',
                         type: NAV_ITEM_TYPE_ITEM,
                         authority: [],
@@ -225,6 +240,6 @@ const navigationConfig: NavigationTree[] = [
             },
         ],
     },
-]
+];
 
-export default navigationConfig
+export default navigationConfig;

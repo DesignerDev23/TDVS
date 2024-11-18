@@ -13,15 +13,15 @@ export const protectedRoutes = [
     },
     /** Example purpose only, please remove */
     {
-        key: 'business',
+        key: 'superAdmin.businessManagement',
         path: '/business',
-        component: lazy(() => import('@/views/Business/Business')),
+        component: lazy(() => import('@/views/SuperAdmin/Business/Business')),
         authority: [],
     },
     {
-        key: 'singleMenuItem',
-        path: '/single-menu-view',
-        component: lazy(() => import('@/views/demo/SingleMenuView')),
+        key: 'superAdmin.addBusiness',
+        path: '/add-business',
+        component: lazy(() => import('@/views/SuperAdmin/Business/AddBusiness')),
         authority: [],
     },
     {
