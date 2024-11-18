@@ -10,10 +10,14 @@ import {
     HiDocumentReport,
     HiOutlineTruck,
     HiCreditCard,
+    
 } from 'react-icons/hi'
 
 import { FaBiking } from "react-icons/fa";
 import { BiSupport } from "react-icons/bi";
+import { MdVerified } from "react-icons/md";
+
+
 
 export type NavigationIcons = Record<string, JSX.Element>
 
@@ -31,6 +35,7 @@ const navigationIcon: NavigationIcons = {
     payments: <HiCreditCard />,
     rider: <FaBiking />,
     support: <BiSupport />,
+    verified: <MdVerified />,
 }
 
 export default navigationIcon

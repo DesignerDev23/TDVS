@@ -61,6 +61,18 @@ export const protectedRoutes = [
         authority: [],
     },
     {
+        key: 'superAdmin.verifiedBusiness',
+        path: '/verified-business',
+        component: lazy(() => import('@/views/SuperAdmin/VerifiedBusinesses/VerifiedBusinesses')),
+        authority: [],
+    },
+    {
+        key: 'superAdmin.verifiedDrivers',
+        path: '/verified-drivers',
+        component: lazy(() => import('@/views/SuperAdmin/VerifiedDrivers/VerifiedDrivers')),
+        authority: [],
+    },
+    {
         key: 'superAdmin.reports',
         path: '/reports',
         component: lazy(() => import('@/views/SuperAdmin/Reports/ReportsPage')),

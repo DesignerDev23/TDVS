@@ -120,7 +120,7 @@ const SystemLogsTable = () => (
 
 const Home = () => {
     return (
-        <div className="min-h-screen bg-gray-100 p-6 space-y-6">
+        <div className="min-h-screen bg-white p-6 space-y-6">
             {/* Page Header */}
             <header>
                 <h1 className="text-3xl font-semibold text-gray-800">Super Admin Dashboard</h1>
