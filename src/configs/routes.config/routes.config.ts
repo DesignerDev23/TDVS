@@ -49,6 +49,12 @@ export const protectedRoutes = [
         authority: [],
     },
     {
+        key: 'superAdmin.reports',
+        path: '/reports',
+        component: lazy(() => import('@/views/SuperAdmin/Reports/ReportsPage')),
+        authority: [],
+    },
+    {
         key: 'collapseMenu.item1',
         path: '/collapse-menu-item-view-1',
         component: lazy(() => import('@/views/demo/CollapseMenuItemView1')),

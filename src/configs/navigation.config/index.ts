@@ -123,7 +123,7 @@ const navigationConfig: NavigationTree[] = [
             },
             {
                 key: 'superAdmin.reports',
-                path: '/super-admin/reports',
+                path: '/reports',
                 title: 'Reports',
                 translateKey: 'nav.superAdmin.reports',
                 icon: 'report',
